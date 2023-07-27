@@ -26,7 +26,8 @@ const handleOnSubmit = (e) => {
     display();
   } else {
     hours.style.color = "red";
-    hours.innerHTML = `Too many hours allocated per week !!`;
+    total = total - hr;
+    hours.innerHTML = `Too many hours allocated per week !!!!!`;
   }
 
   //   console.log(object);
@@ -58,6 +59,8 @@ const display = () => {
       </tr>`;
   });
   taskElementList.innerHTML = str;
+  hours.style.color = "green";
+
   hours.innerHTML = `Total hours  allocated per week = ${total}`;
 };
 const displayBad = () => {
@@ -88,6 +91,8 @@ const displayBad = () => {
         </tr>`;
   });
   badElementList.innerHTML = str;
+  hours.style.color = "green";
+
   hours.innerHTML = `Total hours  allocated per week = ${total}`;
 };
 
@@ -96,7 +101,7 @@ const handleOnDelete = (id) => {
     let demo = taskList.filter((item) => item.id === id);
     taskList = taskList.filter((item) => item.id !== id);
     // console.log(taskList);
-    console.log(demo[0].hr);
+    // console.log(demo[0].hr);
     total = total - +demo[0].hr;
     // console.log(total);
     display();
